@@ -1,20 +1,5 @@
-# Praca inzynierska - Spring Boot
+# CPMA - Company Phone Managment Application
 
-Jest to część backend'owa aplikacji w ramach pracy inżynierkiej, jej głównym zadaniem jest wystawianie API, oraz obłsuga połączeń z Androida jak i Angulara.
+Web application for phone managment in company. That application may help manage phones in company, phone or other structures. In first version is possible to check last localisation, battery and device informations. In future will be added hybrid android application for Android/IOS. Now for my studies I will be trying to integrate Angular with Spring Boot, add more view options, pagination and translations for multilanguage using I18N.
 
-## Lista zadań
-
-### Do pracy inżynierskiej
-
-- [ ] Zaplanowania encji odnośnie Androida - podział na mniejsze encje, lokalizacja, bateria, dane ogólne itd 
-- [ ] Dodanie modeli (encji)
-- [ ] Przygotowanie modelów POJO - IN/OUT
-- [ ] Konfiguracja endpointa dla Androida
-
-### Opcjonalnie
-
-- [ ] Testy end to end / Selenium (?)
-- [ ] System powiadomień do Androida (?)
-cdn..
-
-
+All rights are reserved. 
