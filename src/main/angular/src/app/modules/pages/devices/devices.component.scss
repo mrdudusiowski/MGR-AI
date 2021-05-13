@@ -1,0 +1,22 @@
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #fd7e14c2 !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd):hover {
+  background-color: rgba(255, 123, 49, 0.66) !important;
+}
+
+.table-striped tbody tr:nth-of-type(2n) > td > .btn-light{
+  background-color: #fa9b4b;
+  border-color: #f58c34;
+}
+.table-striped tbody tr:nth-of-type(2n) > td > .btn-light:hover{
+  background-color: #ffbd85;
+}
+
+.btn {
+  background-color: white;
+  margin: 5px;
+  padding: 12px 16px;
+  font-size: 16px;
+}

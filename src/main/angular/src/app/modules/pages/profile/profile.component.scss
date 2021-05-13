@@ -1,0 +1,85 @@
+.h6, h6 {
+  font-size: .75rem !important;
+  font-weight: 500;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.center-block{
+  background-color: #fff;
+  margin-top: 75px;
+  display: block;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#user-image{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: -75px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  transition: .5s ease;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover #user-image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.upload-button {
+  color: black;
+  font-size: 75px;
+  margin-bottom: 75px;
+}
+
+#fullname {
+  text-align: center;
+  width: 100%;
+}
+
+.title-header{
+  font-size: 20px;
+  font-weight: bold;
+  color: #fd7e14;
+}
+
+.text-value{
+  font-size: 18px;
+}
+
+.title {
+  margin-top: 10px;
+  min-height: 32px;
+  color: #3C4858;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hidden-input{
+  display: none;
+}
