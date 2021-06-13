@@ -646,7 +646,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', loadChildren: () => __webpack_require__.e(/*! import() | modules-auth-auth-module */ "modules-auth-auth-module").then(__webpack_require__.bind(null, /*! ./modules/auth/auth.module */ "./src/app/modules/auth/auth.module.ts")).then(m => m.AuthModule) },
     { path: 'cpma', loadChildren: () => __webpack_require__.e(/*! import() | modules-pages-pages-module */ "modules-pages-pages-module").then(__webpack_require__.bind(null, /*! ./modules/pages/pages.module */ "./src/app/modules/pages/pages.module.ts")).then(m => m.PagesModule), canActivate: [_services_routing_guard_service__WEBPACK_IMPORTED_MODULE_3__["RoutingGuardService"]] },
     { path: '**', component: _modules_layout_404_page_not_found_component__WEBPACK_IMPORTED_MODULE_4__["PageNotFoundComponent"] }
@@ -781,7 +781,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"],
                 useClass: _helpers_auth_interceptor__WEBPACK_IMPORTED_MODULE_10__["AuthInterceptor"],
                 multi: true,
-            }
+            },
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })

@@ -1282,7 +1282,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var routes = [{
       path: '',
-      redirectTo: 'login',
+      redirectTo: '/login',
       pathMatch: 'full'
     }, {
       path: 'login',

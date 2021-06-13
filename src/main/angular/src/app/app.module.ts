@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import {AuthInterceptor} from './_helpers/auth.interceptor';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,10 @@ import {AuthInterceptor} from './_helpers/auth.interceptor';
   providers: [{
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
-    multi   : true, }
+    multi   : true, },
+    // {
+    // provide: LocationStrategy,
+    // useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
