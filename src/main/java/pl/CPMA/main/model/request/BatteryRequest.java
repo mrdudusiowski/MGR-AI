@@ -9,11 +9,6 @@ public class BatteryRequest {
     @NotBlank
     private String androidID;
 
-    public BatteryRequest(Float batteryLevel, String androidID) {
-        this.batteryLevel = batteryLevel;
-        this.androidID = androidID;
-    }
-
     public Float getBatteryLevel() {
         return batteryLevel;
     }

@@ -11,12 +11,6 @@ public class LocationRequest {
     @NotBlank
     private String androidID;
 
-    public LocationRequest(Double latitude, Double longitude, String androidID) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.androidID = androidID;
-    }
-
     public Double getLatitude() {
         return latitude;
     }
