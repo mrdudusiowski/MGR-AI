@@ -38,10 +38,6 @@ public class Device extends BaseEntity {
 
     @NotBlank
     @Size(max = 20)
-    private String serial;
-
-    @NotBlank
-    @Size(max = 20)
     private String androidVersionRelease;
 
     @Column(name="androidVersion")
@@ -65,7 +61,7 @@ public class Device extends BaseEntity {
     @JoinColumn(name = "battery_status_id")
     private Battery battery;
 
-    public Device(String androidID, String manufacturer, String brand, String product, String phoneModel, String deviceVersion, String versionRelease, int version, String serial, int width, int height) {
+    public Device(String androidID, String manufacturer, String brand, String product, String phoneModel, String deviceVersion, String versionRelease, int version, int width, int height) {
         this.androidID = androidID;
         this.manufacturer = manufacturer;
         this.brand = brand;
@@ -74,7 +70,6 @@ public class Device extends BaseEntity {
         this.deviceVersion = deviceVersion;
         this.androidVersionRelease = versionRelease;
         this.androidVersion = version;
-        this.serial = serial;
         this.width = width;
         this.height = height;
     }
@@ -95,8 +90,6 @@ public class Device extends BaseEntity {
     public void setBrand(String brand) { this.brand = brand; }
     public String getProduct() { return product; }
     public void setProduct(String product) { this.product = product; }
-    public String getSerial() { return serial; }
-    public void setSerial(String serial) { this.serial = serial; }
     public String getAndroidVersionRelease() { return androidVersionRelease; }
     public void setAndroidVersionRelease(String versionRelease) { this.androidVersionRelease = versionRelease; }
     public Integer getAndroidVersion() { return androidVersion; }

@@ -11,7 +11,6 @@ public class DeviceRequest {
     private String deviceVersion;
     private String brand;
     private String product;
-    private String serial;
     private int version;
     private String versionRelease;
     private int width;
@@ -61,6 +60,4 @@ public class DeviceRequest {
     public void setBrand(String brand) { this.brand = brand; }
     public String getProduct() { return product; }
     public void setProduct(String product) { this.product = product; }
-    public String getSerial() { return serial; }
-    public void setSerial(String serial) { this.serial = serial; }
 }

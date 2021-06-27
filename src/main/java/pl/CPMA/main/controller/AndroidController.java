@@ -64,7 +64,6 @@ public class AndroidController {
                         deviceRequest.getDeviceVersion(),
                         deviceRequest.getVersionRelease(),
                         deviceRequest.getVersion(),
-                        deviceRequest.getSerial(),
                         deviceRequest.getWidth(),
                         deviceRequest.getHeight());
                 device.setUser(currentUser);
