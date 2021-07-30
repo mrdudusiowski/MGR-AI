@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-light-orange elevation-4">
   <!-- Brand Logo -->
   <a [routerLink]="'dashboard'" class="brand-link">
-    <img src="assets/img/logo.png" alt="CPMA Logo" class="brand-image img-circle elevation-3"
+    <img src="assets/img/logo.png" alt="{{'SideNav.CPMALogoAlt' | translate}}" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="brand-text font-weight-light">CPMA</span>
   </a>
@@ -18,7 +18,7 @@
           <a [routerLink]="'dashboard'"  routerLinkActive="active" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              Dashboard
+              {{"SideNav.Menu.Dashboard" | translate}}
             </p>
           </a>
         </li>
@@ -26,7 +26,7 @@
           <a [routerLink]="'devices'" routerLinkActive="active"  class="nav-link">
             <i class="nav-icon fas fa-mobile-alt"></i>
             <p>
-              Devices
+              {{"Global.Devices" | translate}}
             </p>
           </a>
         </li>
@@ -34,7 +34,7 @@
           <a class="nav-link">
             <i class="nav-icon fas fa-tools"></i>
             <p>
-              Administration
+              {{"SideNav.Menu.Administration" | translate}}
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
@@ -42,7 +42,7 @@
             <li class="nav-item">
               <a [routerLink]="'users'" routerLinkActive="active"  class="nav-link">
                 <i class="fas fa-users nav-icon"></i>
-                <p>Users</p>
+                <p> {{"Global.Users" | translate}}</p>
               </a>
             </li>
           </ul>

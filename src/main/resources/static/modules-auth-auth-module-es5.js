@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-page\">\r\n    <div class=\"col-lg-4 col-md-4 col-sm-12 login-page-block\">\r\n      <div class=\"vertical-center\">\r\n        <div class=\"container\">\r\n          <div class=\"text-center\" id=\"login-logo\">\r\n            <img style=\"width: 100px\" src=\"/assets/img/logo.png\">\r\n          </div>\r\n          <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\"  #f=\"ngForm\" novalidate>\r\n            <div class=\"form-group\">\r\n              <input type=\"login\" class=\"form-control\" id=\"username\" name=\"username\" placeholder=\"Login\" [(ngModel)]=\"form.username\" required #username=\"ngModel\" [ngClass]=\"f.submitted && username?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"f.submitted && username.invalid\" class=\"error invalid-feedback\">Login is required</span>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"Password\" [(ngModel)]=\"form.password\" required #password=\"ngModel\" [ngClass]=\"f.submitted && password?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"password.errors?.required\" class=\"error invalid-feedback\">Password is required</span>\r\n              <span *ngIf=\"password.errors?.minlength\" class=\"error invalid-feedback\">Password can't be shorter than 6 characters</span>\r\n            </div>\r\n            <button class=\"btn btn-secondary btn-lg btn-block\">Login</button>\r\n         </form>\r\n          <div id=\"login-copyrights\">©2020 Patryk Duduś</div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n    <div class=\"col-lg-8 col-md-8 login-page-block\" id=\"login-right-panel\"></div>\r\n</div>\r\n\r\n\r\n";
+    __webpack_exports__["default"] = "<div class=\"main-page\">\r\n    <div class=\"col-lg-4 col-md-4 col-sm-12 login-page-block\">\r\n      <div class=\"vertical-center\">\r\n        <div class=\"container\">\r\n          <div class=\"text-center\" id=\"login-logo\">\r\n            <img style=\"width: 100px\" src=\"/assets/img/logo.png\">\r\n          </div>\r\n          <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\"  #f=\"ngForm\" novalidate>\r\n            <div class=\"form-group\">\r\n              <input type=\"login\" class=\"form-control\" id=\"username\" name=\"username\" placeholder=\"{{'Global.Login' | translate}}\" [(ngModel)]=\"form.username\" required #username=\"ngModel\" [ngClass]=\"f.submitted && username?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"f.submitted && username.invalid\" class=\"error invalid-feedback\">{{'Global.LoginIsRequired' | translate}}</span>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"{{'Global.Password' | translate}}\" [(ngModel)]=\"form.password\" required #password=\"ngModel\" [ngClass]=\"f.submitted && password?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"password.errors?.required\" class=\"error invalid-feedback\">{{'Global.PasswordIsRequired' | translate}}</span>\r\n              <span *ngIf=\"password.errors?.minlength\" class=\"error invalid-feedback\">{{'Global.PasswordToShort' | translate}}</span>\r\n            </div>\r\n            <button class=\"btn btn-secondary btn-lg btn-block\">{{'LoginPage.LoginButton' | translate}}</button>\r\n         </form>\r\n          <div id=\"login-copyrights\">©{{currentYear}} Patryk Duduś</div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n    <div class=\"col-lg-8 col-md-8 login-page-block\" id=\"login-right-panel\"></div>\r\n</div>\r\n\r\n\r\n";
     /***/
   },
 
@@ -297,6 +297,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
 
     var AuthModule = function AuthModule() {
       _classCallCheck(this, AuthModule);
@@ -304,7 +310,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AuthModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_auth_auth_component__WEBPACK_IMPORTED_MODULE_4__["AuthComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _auth_routing_module__WEBPACK_IMPORTED_MODULE_3__["AuthRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"]]
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _auth_routing_module__WEBPACK_IMPORTED_MODULE_3__["AuthRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"]]
     })], AuthModule);
     /***/
   },
@@ -475,6 +481,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.isLoginFailed = false;
         this.errorMessage = '';
         this.roles = [];
+        this.currentYear = new Date().getFullYear();
       }
 
       _createClass(LoginComponent, [{

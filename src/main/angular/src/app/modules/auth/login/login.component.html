@@ -7,17 +7,17 @@
           </div>
           <form name="form" (ngSubmit)="f.form.valid && onSubmit()"  #f="ngForm" novalidate>
             <div class="form-group">
-              <input type="login" class="form-control" id="username" name="username" placeholder="Login" [(ngModel)]="form.username" required #username="ngModel" [ngClass]="f.submitted && username?.invalid ? 'is-invalid' : ''"/>
-              <span *ngIf="f.submitted && username.invalid" class="error invalid-feedback">Login is required</span>
+              <input type="login" class="form-control" id="username" name="username" placeholder="{{'Global.Login' | translate}}" [(ngModel)]="form.username" required #username="ngModel" [ngClass]="f.submitted && username?.invalid ? 'is-invalid' : ''"/>
+              <span *ngIf="f.submitted && username.invalid" class="error invalid-feedback">{{'Global.LoginIsRequired' | translate}}</span>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password" [(ngModel)]="form.password" required #password="ngModel" [ngClass]="f.submitted && password?.invalid ? 'is-invalid' : ''"/>
-              <span *ngIf="password.errors?.required" class="error invalid-feedback">Password is required</span>
-              <span *ngIf="password.errors?.minlength" class="error invalid-feedback">Password can't be shorter than 6 characters</span>
+              <input type="password" class="form-control" id="password" name="password" placeholder="{{'Global.Password' | translate}}" [(ngModel)]="form.password" required #password="ngModel" [ngClass]="f.submitted && password?.invalid ? 'is-invalid' : ''"/>
+              <span *ngIf="password.errors?.required" class="error invalid-feedback">{{'Global.PasswordIsRequired' | translate}}</span>
+              <span *ngIf="password.errors?.minlength" class="error invalid-feedback">{{'Global.PasswordToShort' | translate}}</span>
             </div>
-            <button class="btn btn-secondary btn-lg btn-block">Login</button>
+            <button class="btn btn-secondary btn-lg btn-block">{{'LoginPage.LoginButton' | translate}}</button>
          </form>
-          <div id="login-copyrights">©2020 Patryk Duduś</div>
+          <div id="login-copyrights">©{{currentYear}} Patryk Duduś</div>
         </div>
 
       </div>

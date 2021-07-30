@@ -12,24 +12,24 @@
       <a data-toggle="dropdown" href="#">
         <div class="user-panel mt-1 pb-1 mb-1 d-flex">
           <div class="image">
-            <img src="{{imageURL}}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{imageURL}}" class="img-circle elevation-2" alt="{{'Header.ImgAlt' | translate}}">
           </div>
         </div>
       </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center">
         <div class="dropdown-block">
           <div class="image" style="width: 100%;">
-            <img id="user-image" src="{{imageURL}}" class="img-circle" alt="User Image">
+            <img id="user-image" src="{{imageURL}}" class="img-circle" alt="{{'Header.ImgAlt' | translate}}">
           </div>
           <div class="dropdown-block info">
             <a [routerLink]="'profile'" class="d-block">{{user?.name}} {{user?.surname}}</a>
           </div>
         </div>
         <a [routerLink]="'profile'" style="color: #212529 !important;" class="btn btn-app">
-          <i class="fas fa-edit"></i> Edit
+          <i class="fas fa-edit"></i> {{'Global.Edit' | translate}}
         </a>
         <a (click)="onSignOut()" class="btn btn-app">
-          <i class="fas fa-sign-out-alt"></i> Logout
+          <i class="fas fa-sign-out-alt"></i> {{'Header.LogoutButton' | translate}}
         </a>
       </div>
 

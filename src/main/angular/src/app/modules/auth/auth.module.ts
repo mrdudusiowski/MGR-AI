@@ -6,14 +6,15 @@ import {AuthComponent} from './auth/auth.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {FormsModule} from '@angular/forms';
-
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ]
 })
 export class AuthModule {

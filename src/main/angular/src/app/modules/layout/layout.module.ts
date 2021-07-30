@@ -9,6 +9,7 @@ import {MainSpinnerComponent} from './spinners/main-spinner/main-spinner.compone
 import { PageNotFoundComponent } from './404/page-not-found.component';
 import { MapComponent } from './map/map.component';
 import { ComponentSpinnerComponent } from './spinners/component-spinner/component-spinner.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 
@@ -24,7 +25,8 @@ import { ComponentSpinnerComponent } from './spinners/component-spinner/componen
     ComponentSpinnerComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    TranslateModule,
   ],
   exports: [
     HeaderComponent,

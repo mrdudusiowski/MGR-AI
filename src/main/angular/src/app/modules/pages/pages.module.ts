@@ -9,7 +9,7 @@ import { UsersComponent } from './users/users.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { DevicesComponent } from './devices/devices.component';
-
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [PagesComponent, DashboardComponent, UsersComponent, ProfileComponent, DevicesComponent],
@@ -18,7 +18,8 @@ import { DevicesComponent } from './devices/devices.component';
     PagesRoutingModule,
     LayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule,
   ]
 })
 export class PagesModule {

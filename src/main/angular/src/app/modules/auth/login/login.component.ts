@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  currentYear = new Date().getFullYear();
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
               private router: Router, private toastr: ToastrService) {}

@@ -2,12 +2,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Profile</h1>
+        <h1 class="m-0 text-dark">{{'Profile.Profile' | translate}}</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a [routerLink]="'../dashboard'">Home</a></li>
-          <li class="breadcrumb-item active">Users</li>
+          <li class="breadcrumb-item"><a [routerLink]="'../dashboard'">{{'Global.Home' | translate}}</a></li>
+          <li class="breadcrumb-item active">{{'Profile.Profile' | translate}}</li>
         </ol>
       </div>
     </div>
@@ -37,10 +37,10 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <a class="btn btn-app">
-        <i (click)="openEditModal(user)" class="fas fa-edit"></i> Edit
+        <i (click)="openEditModal(user)" class="fas fa-edit"></i> {{'Global.Edit' | translate}}
       </a>
       <a class="btn btn-app">
-        <i (click)="openChangePasswordModal(user)" class="fas fa-key"></i> Password
+        <i (click)="openChangePasswordModal(user)" class="fas fa-key"></i> {{'Global.Password' | translate}}
       </a>
     </div>
   </div>
@@ -50,7 +50,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Edit user</h4>
+          <h4 class="modal-title">{{'Users.EditUser' | translate}}</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
@@ -58,17 +58,17 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" class="form-control" formControlName="name" name="name" placeholder="Name" [ngClass]="submittedEdit && e.name.errors ? 'is-invalid' : ''"/>
-                  <span *ngIf="e.name.errors?.required" class="error invalid-feedback">Name is required</span>
+                  <input type="text" class="form-control" formControlName="name" name="name" placeholder="{{'Users.Name' | translate}}" [ngClass]="submittedEdit && e.name.errors ? 'is-invalid' : ''"/>
+                  <span *ngIf="e.name.errors?.required" class="error invalid-feedback">{{'Users.NameRequired' | translate}}</span>
                 </div>
                 <div class="col-md-6">
-                  <input type="text" class="form-control"  formControlName="surname" name="surname" placeholder="Surname" [ngClass]="submittedEdit && e.surname.errors ? 'is-invalid' : ''"/>
-                  <span *ngIf="e.surname.errors?.required" class="error invalid-feedback">Surname is required</span>
+                  <input type="text" class="form-control"  formControlName="surname" name="surname" placeholder="{{'Users.Surname' | translate}}" [ngClass]="submittedEdit && e.surname.errors ? 'is-invalid' : ''"/>
+                  <span *ngIf="e.surname.errors?.required" class="error invalid-feedback">{{'Users.SurnameRequired' | translate}}</span>
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" formControlName="username" readonly name="username" placeholder="Username"/>
+              <input type="text" class="form-control" formControlName="username" readonly name="username" placeholder="{{'Users.Username' | translate}}"/>
             </div>
             <div class="form-group">
               <div class="input-group">
@@ -76,8 +76,8 @@
                   <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 </div>
                 <input type="email" class="form-control" formControlName="email" name="email" placeholder="E-mail" [ngClass]="submittedEdit && e.email?.errors ? 'is-invalid' : ''"/>
-                <span *ngIf="e.email.errors?.required" class="error invalid-feedback">E-mail is required</span>
-                <span *ngIf="e.email.errors?.email" class="error invalid-feedback">Invalid E-mail pattern</span>
+                <span *ngIf="e.email.errors?.required" class="error invalid-feedback">{{'Users.EmailRequired' | translate}}</span>
+                <span *ngIf="e.email.errors?.email" class="error invalid-feedback">{{'Users.EmailPatternInvalid' | translate}}</span>
               </div>
             </div>
             <div class="form-group">
@@ -85,7 +85,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-phone"></i></span>
                 </div>
-                <input type="text" class="form-control" formControlName="phone" name="phone" placeholder="Phone"/>
+                <input type="text" class="form-control" formControlName="phone" name="phone" placeholder="{{'Users.Phone' | translate}}"/>
               </div>
               <!-- /.input group -->
             </div>
@@ -106,8 +106,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-outline-success">Save</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-outline-success">{{'Global.Save' | translate}}</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">{{'Global.Cancel' | translate}}</button>
             </div>
           </form>
         </div>
@@ -119,27 +119,27 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Change password</h4>
+          <h4 class="modal-title">{{'Global.ChangePassword' | translate}}</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
           <form name="changePasswordForm" [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" novalidate>
             <div class="form-group">
-              <input type="text" class="form-control" formControlName="username" readonly name="username" placeholder="Username"/>
+              <input type="text" class="form-control" formControlName="username" readonly name="username" placeholder="{{'Global.Username' | translate}}"/>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password" [ngClass]="submittedPasswordChange && g.password?.errors ? 'is-invalid' : ''"/>
-              <span *ngIf="g.password.errors?.required" class="error invalid-feedback">Password is required</span>
-              <span *ngIf="g.password.errors?.minlength" class="error invalid-feedback">Password can't be shorter than 6 characters</span>
+              <input type="password" class="form-control" formControlName="password" name="password" placeholder="{{'Global.Password' | translate}}" [ngClass]="submittedPasswordChange && g.password?.errors ? 'is-invalid' : ''"/>
+              <span *ngIf="g.password.errors?.required" class="error invalid-feedback">{{'Global.PasswordIsRequired' | translate}}</span>
+              <span *ngIf="g.password.errors?.minlength" class="error invalid-feedback">{{'Global.PasswordToShort' | translate}}</span>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" formControlName="confirmPassword" name="confirmPassword" placeholder="Confirm Password" [ngClass]="submittedPasswordChange && g.confirmPassword?.errors ? 'is-invalid' : ''"/>
-              <span *ngIf="g.confirmPassword.errors?.required" class="error invalid-feedback">Confirm Password is required</span>
-              <span *ngIf="g.confirmPassword.errors?.mustMatch" class="error invalid-feedback">Passwords didn't match</span>
+              <input type="password" class="form-control" formControlName="confirmPassword" name="confirmPassword" placeholder="{{'Global.ConfirmPassword' | translate}}" [ngClass]="submittedPasswordChange && g.confirmPassword?.errors ? 'is-invalid' : ''"/>
+              <span *ngIf="g.confirmPassword.errors?.required" class="error invalid-feedback">{{'Global.ConfirmPasswordIsRequired' | translate}}</span>
+              <span *ngIf="g.confirmPassword.errors?.mustMatch" class="error invalid-feedback">{{'Global.PasswordsNotMatch' | translate}}</span>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-outline-warning">Change password</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-outline-warning">{{'Global.ChangePassword' | translate}}</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">{{'Global.Cancel' | translate}}</button>
             </div>
           </form>
         </div>

@@ -71,7 +71,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-404\">\n    <div class=\"page-404\">\n      <div class=\"row\">\n          <div class=\"col-md-12\">\n            <img class=\"top-image-404\" src=\"assets/img/404-1.png\">\n          </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div (click)=\"goToPage()\" class=\"fallback-button\">Return!</div>\n        </div>\n      </div>\n    </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"main-404\">\n    <div class=\"page-404\">\n      <div class=\"row\">\n          <div class=\"col-md-12\">\n            <img class=\"top-image-404\" src=\"assets/img/404-1.png\">\n          </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div (click)=\"goToPage()\" class=\"fallback-button\">{{'404.ReturnButton' | translate}}</div>\n        </div>\n      </div>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -91,7 +91,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<footer class=\"main-footer\">\n  <strong>Copyright &copy; 2020 Patryk Duduś</strong>\n  <div class=\"float-right d-none d-sm-inline-block\">\n    <b>Version</b> 1.0\n  </div>\n</footer>\n";
+    __webpack_exports__["default"] = "<footer class=\"main-footer\">\n  <strong>Copyright &copy; {{currentYear}} Patryk Duduś</strong>\n  <div class=\"float-right d-none d-sm-inline-block\">\n    <b>{{'Footer.Version' | translate}}</b> 1.0\n  </div>\n</footer>\n";
     /***/
   },
 
@@ -111,7 +111,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- Navbar -->\n<nav class=\"main-header navbar navbar-expand navbar-white navbar-light\">\n  <!-- Left navbar links -->\n  <ul class=\"navbar-nav\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" data-widget=\"pushmenu\" href=\"#\" role=\"button\"><i class=\"fas fa-bars\"></i></a>\n    </li>\n  </ul>\n  <!-- Right navbar links -->\n  <ul class=\"navbar-nav ml-auto\">\n    <li class=\"nav-item dropdown\" style=\"margin-right: 20px\">\n      <a data-toggle=\"dropdown\" href=\"#\">\n        <div class=\"user-panel mt-1 pb-1 mb-1 d-flex\">\n          <div class=\"image\">\n            <img src=\"{{imageURL}}\" class=\"img-circle elevation-2\" alt=\"User Image\">\n          </div>\n        </div>\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-lg dropdown-menu-right text-center\">\n        <div class=\"dropdown-block\">\n          <div class=\"image\" style=\"width: 100%;\">\n            <img id=\"user-image\" src=\"{{imageURL}}\" class=\"img-circle\" alt=\"User Image\">\n          </div>\n          <div class=\"dropdown-block info\">\n            <a [routerLink]=\"'profile'\" class=\"d-block\">{{user?.name}} {{user?.surname}}</a>\n          </div>\n        </div>\n        <a [routerLink]=\"'profile'\" style=\"color: #212529 !important;\" class=\"btn btn-app\">\n          <i class=\"fas fa-edit\"></i> Edit\n        </a>\n        <a (click)=\"onSignOut()\" class=\"btn btn-app\">\n          <i class=\"fas fa-sign-out-alt\"></i> Logout\n        </a>\n      </div>\n\n    </li>\n  </ul>\n</nav>\n<!-- /.navbar -->\n";
+    __webpack_exports__["default"] = "<!-- Navbar -->\n<nav class=\"main-header navbar navbar-expand navbar-white navbar-light\">\n  <!-- Left navbar links -->\n  <ul class=\"navbar-nav\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" data-widget=\"pushmenu\" href=\"#\" role=\"button\"><i class=\"fas fa-bars\"></i></a>\n    </li>\n  </ul>\n  <!-- Right navbar links -->\n  <ul class=\"navbar-nav ml-auto\">\n    <li class=\"nav-item dropdown\" style=\"margin-right: 20px\">\n      <a data-toggle=\"dropdown\" href=\"#\">\n        <div class=\"user-panel mt-1 pb-1 mb-1 d-flex\">\n          <div class=\"image\">\n            <img src=\"{{imageURL}}\" class=\"img-circle elevation-2\" alt=\"{{'Header.ImgAlt' | translate}}\">\n          </div>\n        </div>\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-lg dropdown-menu-right text-center\">\n        <div class=\"dropdown-block\">\n          <div class=\"image\" style=\"width: 100%;\">\n            <img id=\"user-image\" src=\"{{imageURL}}\" class=\"img-circle\" alt=\"{{'Header.ImgAlt' | translate}}\">\n          </div>\n          <div class=\"dropdown-block info\">\n            <a [routerLink]=\"'profile'\" class=\"d-block\">{{user?.name}} {{user?.surname}}</a>\n          </div>\n        </div>\n        <a [routerLink]=\"'profile'\" style=\"color: #212529 !important;\" class=\"btn btn-app\">\n          <i class=\"fas fa-edit\"></i> {{'Global.Edit' | translate}}\n        </a>\n        <a (click)=\"onSignOut()\" class=\"btn btn-app\">\n          <i class=\"fas fa-sign-out-alt\"></i> {{'Header.LogoutButton' | translate}}\n        </a>\n      </div>\n\n    </li>\n  </ul>\n</nav>\n<!-- /.navbar -->\n";
     /***/
   },
 
@@ -171,7 +171,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- Main Sidebar Container -->\n<aside class=\"main-sidebar sidebar-light-orange elevation-4\">\n  <!-- Brand Logo -->\n  <a [routerLink]=\"'dashboard'\" class=\"brand-link\">\n    <img src=\"assets/img/logo.png\" alt=\"CPMA Logo\" class=\"brand-image img-circle elevation-3\"\n         style=\"opacity: .8\">\n    <span class=\"brand-text font-weight-light\">CPMA</span>\n  </a>\n\n  <!-- Sidebar -->\n  <div class=\"sidebar\">\n <!-- Sidebar Menu -->\n    <nav class=\"mt-2\">\n      <ul class=\"nav nav-pills nav-sidebar flex-column\" data-widget=\"treeview\" role=\"menu\" data-accordion=\"false\">\n        <!-- Add icons to the links using the .nav-icon class\n             with font-awesome or any other icon font library -->\n        <li class=\"nav-item\">\n          <a [routerLink]=\"'dashboard'\"  routerLinkActive=\"active\" class=\"nav-link\">\n            <i class=\"nav-icon fas fa-tachometer-alt\"></i>\n            <p>\n              Dashboard\n            </p>\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a [routerLink]=\"'devices'\" routerLinkActive=\"active\"  class=\"nav-link\">\n            <i class=\"nav-icon fas fa-mobile-alt\"></i>\n            <p>\n              Devices\n            </p>\n          </a>\n        </li>\n        <li class=\"nav-item has-treeview\">\n          <a class=\"nav-link\">\n            <i class=\"nav-icon fas fa-tools\"></i>\n            <p>\n              Administration\n              <i class=\"fas fa-angle-left right\"></i>\n            </p>\n          </a>\n          <ul class=\"nav nav-treeview\">\n            <li class=\"nav-item\">\n              <a [routerLink]=\"'users'\" routerLinkActive=\"active\"  class=\"nav-link\">\n                <i class=\"fas fa-users nav-icon\"></i>\n                <p>Users</p>\n              </a>\n            </li>\n          </ul>\n        </li>\n      </ul>\n    </nav>\n    <!-- /.sidebar-menu -->\n  </div>\n  <!-- /.sidebar -->\n</aside>\n";
+    __webpack_exports__["default"] = "<!-- Main Sidebar Container -->\n<aside class=\"main-sidebar sidebar-light-orange elevation-4\">\n  <!-- Brand Logo -->\n  <a [routerLink]=\"'dashboard'\" class=\"brand-link\">\n    <img src=\"assets/img/logo.png\" alt=\"{{'SideNav.CPMALogoAlt' | translate}}\" class=\"brand-image img-circle elevation-3\"\n         style=\"opacity: .8\">\n    <span class=\"brand-text font-weight-light\">CPMA</span>\n  </a>\n\n  <!-- Sidebar -->\n  <div class=\"sidebar\">\n <!-- Sidebar Menu -->\n    <nav class=\"mt-2\">\n      <ul class=\"nav nav-pills nav-sidebar flex-column\" data-widget=\"treeview\" role=\"menu\" data-accordion=\"false\">\n        <!-- Add icons to the links using the .nav-icon class\n             with font-awesome or any other icon font library -->\n        <li class=\"nav-item\">\n          <a [routerLink]=\"'dashboard'\"  routerLinkActive=\"active\" class=\"nav-link\">\n            <i class=\"nav-icon fas fa-tachometer-alt\"></i>\n            <p>\n              {{\"SideNav.Menu.Dashboard\" | translate}}\n            </p>\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a [routerLink]=\"'devices'\" routerLinkActive=\"active\"  class=\"nav-link\">\n            <i class=\"nav-icon fas fa-mobile-alt\"></i>\n            <p>\n              {{\"Global.Devices\" | translate}}\n            </p>\n          </a>\n        </li>\n        <li class=\"nav-item has-treeview\">\n          <a class=\"nav-link\">\n            <i class=\"nav-icon fas fa-tools\"></i>\n            <p>\n              {{\"SideNav.Menu.Administration\" | translate}}\n              <i class=\"fas fa-angle-left right\"></i>\n            </p>\n          </a>\n          <ul class=\"nav nav-treeview\">\n            <li class=\"nav-item\">\n              <a [routerLink]=\"'users'\" routerLinkActive=\"active\"  class=\"nav-link\">\n                <i class=\"fas fa-users nav-icon\"></i>\n                <p> {{\"Global.Users\" | translate}}</p>\n              </a>\n            </li>\n          </ul>\n        </li>\n      </ul>\n    </nav>\n    <!-- /.sidebar-menu -->\n  </div>\n  <!-- /.sidebar -->\n</aside>\n";
     /***/
   },
 
@@ -1380,13 +1380,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
 
-    var AppComponent = function AppComponent(router) {
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
+
+    var AppComponent = function AppComponent(router, translate) {
       var _this2 = this;
 
       _classCallCheck(this, AppComponent);
 
       this.router = router;
+      this.translate = translate;
       this.title = 'CPMA';
       this.router.events.subscribe(function (value) {
         if (value instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
@@ -1399,11 +1406,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _this2.active = false;
         }
       });
+      translate.addLangs(['en', 'pl']);
+      translate.setDefaultLang('en');
+      var browserLang = translate.getBrowserLang();
+      translate.use(browserLang.match(/en|pl/) ? browserLang : 'en');
     };
 
     AppComponent.ctorParameters = function () {
       return [{
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]
       }];
     };
 
@@ -1425,7 +1438,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     !*** ./src/app/app.module.ts ***!
     \*******************************/
 
-  /*! exports provided: AppModule */
+  /*! exports provided: AppModule, HttpLoaderFactory */
 
   /***/
   function srcAppAppModuleTs(module, __webpack_exports__, __webpack_require__) {
@@ -1437,6 +1450,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     __webpack_require__.d(__webpack_exports__, "AppModule", function () {
       return AppModule;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "HttpLoaderFactory", function () {
+      return HttpLoaderFactory;
     });
     /* harmony import */
 
@@ -1504,6 +1523,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _helpers_auth_interceptor__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./_helpers/auth.interceptor */
     "./src/app/_helpers/auth.interceptor.ts");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
+    /* harmony import */
+
+
+    var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! @ngx-translate/http-loader */
+    "./node_modules/@ngx-translate/http-loader/fesm2015/ngx-translate-http-loader.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -1511,15 +1542,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _modules_layout_layout_module__WEBPACK_IMPORTED_MODULE_5__["LayoutModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"], ngx_toastr__WEBPACK_IMPORTED_MODULE_9__["ToastrModule"].forRoot()],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _modules_layout_layout_module__WEBPACK_IMPORTED_MODULE_5__["LayoutModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateModule"].forRoot({
+        loader: {
+          provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateLoader"],
+          useFactory: HttpLoaderFactory,
+          deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"]]
+        }
+      }), ngx_toastr__WEBPACK_IMPORTED_MODULE_9__["ToastrModule"].forRoot()],
       providers: [{
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"],
         useClass: _helpers_auth_interceptor__WEBPACK_IMPORTED_MODULE_10__["AuthInterceptor"],
         multi: true
       }],
+      exports: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateModule"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })], AppModule);
+
+    function HttpLoaderFactory(http) {
+      return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_12__["TranslateHttpLoader"](http);
+    }
     /***/
+
   },
 
   /***/
@@ -1686,6 +1729,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var FooterComponent = /*#__PURE__*/function () {
       function FooterComponent() {
         _classCallCheck(this, FooterComponent);
+
+        this.currentYear = new Date().getFullYear();
       }
 
       _createClass(FooterComponent, [{
@@ -1937,6 +1982,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _spinners_component_spinner_component_spinner_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ./spinners/component-spinner/component-spinner.component */
     "./src/app/modules/layout/spinners/component-spinner/component-spinner.component.ts");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
 
     var LayoutModule = function LayoutModule() {
       _classCallCheck(this, LayoutModule);
@@ -1944,7 +1995,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     LayoutModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"], _footer_footer_component__WEBPACK_IMPORTED_MODULE_4__["FooterComponent"], _side_nav_side_nav_component__WEBPACK_IMPORTED_MODULE_5__["SideNavComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_6__["SettingsComponent"], _spinners_main_spinner_main_spinner_component__WEBPACK_IMPORTED_MODULE_8__["MainSpinnerComponent"], _404_page_not_found_component__WEBPACK_IMPORTED_MODULE_9__["PageNotFoundComponent"], _map_map_component__WEBPACK_IMPORTED_MODULE_10__["MapComponent"], _spinners_component_spinner_component_spinner_component__WEBPACK_IMPORTED_MODULE_11__["ComponentSpinnerComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateModule"]],
       exports: [_header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"], _footer_footer_component__WEBPACK_IMPORTED_MODULE_4__["FooterComponent"], _side_nav_side_nav_component__WEBPACK_IMPORTED_MODULE_5__["SideNavComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_6__["SettingsComponent"], _spinners_main_spinner_main_spinner_component__WEBPACK_IMPORTED_MODULE_8__["MainSpinnerComponent"], _map_map_component__WEBPACK_IMPORTED_MODULE_10__["MapComponent"], _spinners_component_spinner_component_spinner_component__WEBPACK_IMPORTED_MODULE_11__["ComponentSpinnerComponent"]]
     })], LayoutModule);
     /***/

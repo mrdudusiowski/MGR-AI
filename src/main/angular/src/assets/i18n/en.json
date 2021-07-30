@@ -1,0 +1,79 @@
+{
+  "Global": {
+    "Users": "Users",
+    "Devices": "Devices",
+    "Home": "Home",
+    "Add": "Add",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "Username": "Username",
+    "UsernameRequired": "Username is required",
+    "Login": "Login",
+    "LoginIsRequired": "Login is required",
+    "Password": "Password",
+    "Save": "Save",
+    "Cancel": "Cancel",
+    "PasswordIsRequired": "Password is required",
+    "PasswordToShort": "Password can't be shorter than 6 characters",
+    "ChangePassword": "Change password",
+    "ConfirmPassword": "Confirm Password",
+    "ConfirmPasswordIsRequired": "Confirm Password is required",
+    "PasswordsNotMatch": "Passwords didn't match"
+  },
+  "LoginPage": {
+    "LoginButton": "Login"
+  },
+  "404": {
+    "ReturnButton": "Return!"
+  },
+  "Footer": {
+    "Version": "Version"
+  },
+  "Header": {
+    "ImgAlt": "User Image",
+    "LogoutButton": "Logout"
+  },
+  "SideNav": {
+    "CPMALogoAlt": "CPMA Logo",
+    "Menu": {
+      "Dashboard": "Dashboard",
+      "Administration": "Administration"
+    }
+  },
+  "Dashboard": {
+    "GoodBattery": "Good Battery",
+    "MediumBattery": "Medium Battery",
+    "LowBattery": "Low Battery"
+  },
+  "Devices": {
+    "AndroidID": "Android ID",
+    "Manufacturer": "Manufacturer",
+    "PhoneModel": "Phone model",
+    "Product": "Product",
+    "SDK": "SDK",
+    "Width": "Width",
+    "Height": "Height",
+    "Owner": "Owner",
+    "Battery": "Battery",
+    "Localisation": "Localisation",
+    "Map": "Map"
+  },
+  "Profile": {
+    "Profile": "Profile"
+  },
+  "Users": {
+    "Name": "Name",
+    "Surname": "Surname",
+    "EmailRequired": "E-mail is required",
+    "EmailPatternInvalid": "Invalid E-mail pattern",
+    "Phone": "Phone",
+    "EditUser": "Edit User",
+    "NameRequired": "Name is required",
+    "SurnameRequired": "Surname is required",
+    "Roles": "Roles",
+    "AddUser": "Add user",
+    "DeleteUser": "Delete user",
+    "AskDeleteUser": "Are you sure delete user",
+    "GetReport": "Get report"
+  }
+}

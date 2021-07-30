@@ -1,0 +1,79 @@
+{
+  "Global": {
+    "Users": "Użytkownicy",
+    "Devices": "Urządzenia",
+    "Home": "Strona główna",
+    "Add": "Dodaj",
+    "Edit": "Edytuj",
+    "Delete": "Usuń",
+    "Username": "Nazwa użytkownika",
+    "UsernameRequired": "Nazwa użytkownika jest wymagana",
+    "Login": "Login",
+    "LoginIsRequired": "Login jest wymagany",
+    "Password": "Hasło",
+    "Save": "Zapisz",
+    "Cancel": "Anuluj",
+    "PasswordIsRequired": "Hasło jest wymagane",
+    "PasswordToShort": "Hasło nie może być krótsze niż 6 znaków",
+    "ChangePassword": "Zmień hasło",
+    "ConfirmPassword": "Potwierdź hasło",
+    "ConfirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
+    "PasswordsNotMatch": "Hasła się nie zgadzają"
+  },
+  "LoginPage": {
+    "LoginButton": "Zaloguj"
+  },
+  "404": {
+    "ReturnButton": "Wróć!"
+  },
+  "Footer": {
+    "Version": "Wersja"
+  },
+  "Header": {
+    "ImgAlt": "Obrazek użytkownika",
+    "LogoutButton": "Wyloguj"
+  },
+  "SideNav": {
+    "CPMALogoAlt": "Logo CPMA",
+    "Menu": {
+      "Dashboard": "Dashboard",
+      "Administration": "Administracja"
+    }
+  },
+  "Dashboard": {
+    "GoodBattery": "Dobry stan baterii",
+    "MediumBattery": "Średni stan baterii",
+    "LowBattery": "Słaba bateria"
+  },
+  "Devices": {
+    "AndroidID": "ID Androida",
+    "Manufacturer": "Producent",
+    "PhoneModel": "Model telefonu",
+    "Product": "Produkt",
+    "SDK": "SDK",
+    "Width": "Szerkość",
+    "Height": "Wysokość",
+    "Owner": "Właściciel",
+    "Battery": "Stan baterii",
+    "Localisation": "Lokalizacja",
+    "Map": "Mapa"
+  },
+  "Profile": {
+    "Profile": "Profil"
+  },
+  "Users": {
+    "Name": "Imię",
+    "Surname": "Nazwisko",
+    "EmailRequired": "E-mail jest wymagany",
+    "EmailPatternInvalid": "Niepoprawny adres E-mail",
+    "Phone": "Telefon",
+    "EditUser": "Edycja użytkownika",
+    "NameRequired": "Imię jest wymagane",
+    "SurnameRequired": "Nazwisko jest wymagane",
+    "Roles": "Role",
+    "AddUser": "Dodaj użytkownika",
+    "DeleteUser": "Usuń użytkownika",
+    "AskDeleteUser": "Czy na pewno chcesz usunąć użytkownika",
+    "GetReport": "Pobierz raport"
+  }
+}

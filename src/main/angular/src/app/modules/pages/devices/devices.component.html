@@ -2,12 +2,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Devices</h1>
+        <h1 class="m-0 text-dark">{{'Global.Devices' | translate}}</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a [routerLink]="'../dashboard'">Home</a></li>
-          <li class="breadcrumb-item active">Devices</li>
+          <li class="breadcrumb-item"><a [routerLink]="'../dashboard'">{{'Global.Home' | translate}}</a></li>
+          <li class="breadcrumb-item active">{{'Global.Devices' | translate}}</li>
         </ol>
       </div>
     </div>
@@ -21,16 +21,16 @@
     <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Android ID</th>
-      <th scope="col">Manufacturer</th>
-      <th scope="col">Phone model</th>
-      <th scope="col">Product</th>
-      <th scope="col">SDK</th>
-      <th scope="col">Width</th>
-      <th scope="col">Height</th>
-      <th scope="col">Owner</th>
-      <th scope="col">Battery</th>
-      <th scope="col" style="text-align: center;">Localisation</th>
+      <th scope="col">{{'Devices.AndroidID' | translate}}</th>
+      <th scope="col">{{'Devices.Manufacturer' | translate}}</th>
+      <th scope="col">{{'Devices.PhoneModel' | translate}}</th>
+      <th scope="col">{{'Devices.Product' | translate}}</th>
+      <th scope="col">{{'Devices.SDK' | translate}}</th>
+      <th scope="col">{{'Devices.Width' | translate}}</th>
+      <th scope="col">{{'Devices.Height' | translate}}</th>
+      <th scope="col">{{'Devices.Owner' | translate}}</th>
+      <th scope="col">{{'Devices.Battery' | translate}}</th>
+      <th scope="col" style="text-align: center;">{{'Devices.Localisation' | translate}}</th>
     </tr>
     </thead>
     <tbody>
@@ -45,7 +45,7 @@
       <td>{{ device.height }}</td>
       <td>{{ device?.user.name }} {{ device?.user.surname }}</td>
       <td>{{ device?.battery.batteryLevel }}%</td>
-      <td><button class="btn" (click)="openMapModal(device)"><i class="fas fa-map-marked-alt"></i> Map</button></td>
+      <td><button class="btn" (click)="openMapModal(device)"><i class="fas fa-map-marked-alt"></i> {{'Devices.Map' | translate}}</button></td>
       </tr>
     </tbody>
   </table>

@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-page\">\r\n    <div class=\"col-lg-4 col-md-4 col-sm-12 login-page-block\">\r\n      <div class=\"vertical-center\">\r\n        <div class=\"container\">\r\n          <div class=\"text-center\" id=\"login-logo\">\r\n            <img style=\"width: 100px\" src=\"/assets/img/logo.png\">\r\n          </div>\r\n          <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\"  #f=\"ngForm\" novalidate>\r\n            <div class=\"form-group\">\r\n              <input type=\"login\" class=\"form-control\" id=\"username\" name=\"username\" placeholder=\"Login\" [(ngModel)]=\"form.username\" required #username=\"ngModel\" [ngClass]=\"f.submitted && username?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"f.submitted && username.invalid\" class=\"error invalid-feedback\">Login is required</span>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"Password\" [(ngModel)]=\"form.password\" required #password=\"ngModel\" [ngClass]=\"f.submitted && password?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"password.errors?.required\" class=\"error invalid-feedback\">Password is required</span>\r\n              <span *ngIf=\"password.errors?.minlength\" class=\"error invalid-feedback\">Password can't be shorter than 6 characters</span>\r\n            </div>\r\n            <button class=\"btn btn-secondary btn-lg btn-block\">Login</button>\r\n         </form>\r\n          <div id=\"login-copyrights\">©2020 Patryk Duduś</div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n    <div class=\"col-lg-8 col-md-8 login-page-block\" id=\"login-right-panel\"></div>\r\n</div>\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-page\">\r\n    <div class=\"col-lg-4 col-md-4 col-sm-12 login-page-block\">\r\n      <div class=\"vertical-center\">\r\n        <div class=\"container\">\r\n          <div class=\"text-center\" id=\"login-logo\">\r\n            <img style=\"width: 100px\" src=\"/assets/img/logo.png\">\r\n          </div>\r\n          <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\"  #f=\"ngForm\" novalidate>\r\n            <div class=\"form-group\">\r\n              <input type=\"login\" class=\"form-control\" id=\"username\" name=\"username\" placeholder=\"{{'Global.Login' | translate}}\" [(ngModel)]=\"form.username\" required #username=\"ngModel\" [ngClass]=\"f.submitted && username?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"f.submitted && username.invalid\" class=\"error invalid-feedback\">{{'Global.LoginIsRequired' | translate}}</span>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"{{'Global.Password' | translate}}\" [(ngModel)]=\"form.password\" required #password=\"ngModel\" [ngClass]=\"f.submitted && password?.invalid ? 'is-invalid' : ''\"/>\r\n              <span *ngIf=\"password.errors?.required\" class=\"error invalid-feedback\">{{'Global.PasswordIsRequired' | translate}}</span>\r\n              <span *ngIf=\"password.errors?.minlength\" class=\"error invalid-feedback\">{{'Global.PasswordToShort' | translate}}</span>\r\n            </div>\r\n            <button class=\"btn btn-secondary btn-lg btn-block\">{{'LoginPage.LoginButton' | translate}}</button>\r\n         </form>\r\n          <div id=\"login-copyrights\">©{{currentYear}} Patryk Duduś</div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n    <div class=\"col-lg-8 col-md-8 login-page-block\" id=\"login-right-panel\"></div>\r\n</div>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -151,6 +151,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/modules/auth/login/login.component.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./register/register.component */ "./src/app/modules/auth/register/register.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -167,7 +169,8 @@ AuthModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _auth_routing_module__WEBPACK_IMPORTED_MODULE_3__["AuthRoutingModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"]
         ]
     })
 ], AuthModule);
@@ -267,6 +270,7 @@ let LoginComponent = class LoginComponent {
         this.isLoginFailed = false;
         this.errorMessage = '';
         this.roles = [];
+        this.currentYear = new Date().getFullYear();
     }
     onSubmit() {
         this.authService.login(this.form).subscribe(data => {
