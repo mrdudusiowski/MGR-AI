@@ -13,11 +13,13 @@ import pl.CPMA.core.payload.response.MessageResponse;
 import pl.CPMA.core.security.JWT.JWTUtils;
 import pl.CPMA.main.model.ImageModel;
 import pl.CPMA.main.model.User;
+import pl.CPMA.main.model.UserSettings;
 import pl.CPMA.main.model.request.PasswordChangeRequest;
 import pl.CPMA.main.model.request.RegisterRequest;
 import pl.CPMA.main.model.request.UpdateRequest;
 import pl.CPMA.main.repository.ImageRepository;
 import pl.CPMA.main.repository.UserRepository;
+import pl.CPMA.main.repository.UserSettingsRepository;
 import pl.CPMA.main.service.RoleService;
 import pl.CPMA.main.service.UserService;
 import pl.CPMA.main.utils.ImageUtil;
@@ -40,6 +42,9 @@ public class UserController {
 
     @Autowired
     ImageRepository imageRepository;
+
+    @Autowired
+    UserSettingsRepository userSettingsRepository;
 
     @Autowired
     PasswordEncoder encoder;
@@ -154,6 +159,27 @@ public class UserController {
         userRepository.save(dbUser);
 
         return ResponseEntity.ok(new MessageResponse("Password changed successfully!"));
+    }
+
+    @PutMapping("/updateSettings")
+    public ResponseEntity<?> updateSettings(@Valid @RequestBody UserSettings userSettings, @RequestParam Long id) {
+        UserSettings dbUserSettings = userSettingsRepository.findByUser_Id(id);
+        if (dbUserSettings == null)
+            return ResponseEntity.badRequest()
+                    .body(new MessageResponse(("User settings for that user not found")));
+
+        if(!dbUserSettings.getLanguage().equals(userSettings.getLanguage()))
+            dbUserSettings.setLanguage(userSettings.getLanguage());
+
+        if(!dbUserSettings.getItems_on_page().equals(userSettings.getViewType()))
+            dbUserSettings.setItems_on_page(userSettings.getItems_on_page());
+
+        if(!dbUserSettings.getViewType().equals(userSettings.getViewType()))
+            dbUserSettings.setViewType(userSettings.getViewType());
+
+        userSettingsRepository.save(dbUserSettings);
+
+        return ResponseEntity.ok(new MessageResponse("User settings was updated successfull!"));
     }
 
     @GetMapping("/getReport")

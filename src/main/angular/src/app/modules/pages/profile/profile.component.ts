@@ -7,6 +7,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as bootstrap from 'bootstrap';
 import {MustMatch} from '../../../_helpers/must-match.validator';
 import {UploadService} from '../../../_services/_api/upload.api.service';
+import {LanguageService} from '../../../_services/_api/language.api.service';
+import {ViewTypeService} from '../../../_services/_api/viewtype.api.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
@@ -17,20 +20,43 @@ export class ProfileComponent implements OnInit {
   private user: any;
   private imageURL: String;
   editUserForm: FormGroup;
+  editSettingsForm: FormGroup;
   changePasswordForm: FormGroup;
   submittedEdit = false;
+  submittedEditSettings = false;
   submittedPasswordChange = false;
+  private languages: String[];
+  private viewTypes: String[];
 
   constructor(private pagesComponent: PagesComponent, private toastr: ToastrService,
               private tokenStorage: TokenStorageService, private formBuilder: FormBuilder,
-              private userService: UserService, private uploadService: UploadService) { }
+              private userService: UserService, private uploadService: UploadService, private languageService: LanguageService,
+              private viewTypeService: ViewTypeService, private translate: TranslateService) {
+    this.getData();
+  }
 
   get e() { return this.editUserForm.controls; }
+  get f() { return this.editSettingsForm.controls; }
   get g() { return this.changePasswordForm.controls; }
 
   async ngOnInit() {
     await this.runFormBuilders();
     await this.getUser(this.tokenStorage.getUser().id);
+  }
+
+  getData() {
+    this.languageService.getAllLanguages().subscribe(response => {
+        this.languages = response;
+      },
+      err => {
+        this.toastr.error(err.error.message, 'Error!');
+      });
+    this.viewTypeService.getAllViewTypes().subscribe(response => {
+        this.viewTypes = response;
+      },
+      err => {
+        this.toastr.error(err.error.message, 'Error!');
+      });
   }
 
   openEditModal(user: any) {
@@ -106,6 +132,11 @@ export class ProfileComponent implements OnInit {
       isAdmin: [, ],
       isMod: [, ]
     }, {});
+    this.editSettingsForm = this.formBuilder.group({
+      language: ['', Validators.required],
+      itemsPerPage: ['', Validators.required],
+      viewType: ['', Validators.required]
+    }, {});
     this.changePasswordForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -149,5 +180,39 @@ export class ProfileComponent implements OnInit {
           this.toastr.error(err.error.message, 'Error!');
         }
       );
+  }
+
+  openSettingsModal(user: any) {
+    this.editSettingsForm.get('language').setValue(user.userSettings.language);
+    this.editSettingsForm.get('itemsPerPage').setValue(user.userSettings.items_on_page);
+    this.editSettingsForm.get('viewType').setValue(user.userSettings.viewType);
+    $('#editSettingsModal').modal('show');
+  }
+
+  updateSettings() {
+    this.submittedEditSettings = true;
+    if (this.editSettingsForm.invalid) {
+      return;
+    } else {
+      this.userService.updateUserSettings(this.user.id, this.editSettingsForm.value).subscribe(
+        response => {
+          this.userService.getUser(this.user.id).subscribe(response => {
+            this.tokenStorage.saveUser(response);
+          }, err => {
+            console.log(err);
+          });
+          this.toastr.success(response.message, 'Success!!');
+          $('#editSettingsModal').modal('hide');
+        },
+        err => {
+          this.toastr.error(err.error.message, 'Error!');
+        }
+      );
+    }
+    this.editSettingsForm.reset();
+    this.submittedEditSettings = false;
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 }

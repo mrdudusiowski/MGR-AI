@@ -18,7 +18,8 @@
     "ChangePassword": "Zmień hasło",
     "ConfirmPassword": "Potwierdź hasło",
     "ConfirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
-    "PasswordsNotMatch": "Hasła się nie zgadzają"
+    "PasswordsNotMatch": "Hasła się nie zgadzają",
+    "Settings": "Ustawienia"
   },
   "LoginPage": {
     "LoginButton": "Zaloguj"
@@ -59,7 +60,9 @@
     "Map": "Mapa"
   },
   "Profile": {
-    "Profile": "Profil"
+    "Profile": "Profil",
+    "UserInformations": "Informacje Użytkownika",
+    "AccountSettings": "Ustawienia konta"
   },
   "Users": {
     "Name": "Imię",
@@ -74,6 +77,12 @@
     "AddUser": "Dodaj użytkownika",
     "DeleteUser": "Usuń użytkownika",
     "AskDeleteUser": "Czy na pewno chcesz usunąć użytkownika",
-    "GetReport": "Pobierz raport"
-  }
+    "GetReport": "Pobierz raport",
+    "Language": "Język",
+    "ItemsPerPage": "Ilość obiektów na stronie",
+    "ViewType": "Typ widoku",
+    "EditSettings": "Edycja ustawień użytkownika"
+  },
+  "VIEW_LIST": "Widok listy",
+  "VIEW_TABLE": "Widok tabeli"
 }

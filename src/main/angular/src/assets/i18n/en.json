@@ -18,7 +18,8 @@
     "ChangePassword": "Change password",
     "ConfirmPassword": "Confirm Password",
     "ConfirmPasswordIsRequired": "Confirm Password is required",
-    "PasswordsNotMatch": "Passwords didn't match"
+    "PasswordsNotMatch": "Passwords didn't match",
+    "Settings": "Settings"
   },
   "LoginPage": {
     "LoginButton": "Login"
@@ -59,7 +60,9 @@
     "Map": "Map"
   },
   "Profile": {
-    "Profile": "Profile"
+    "Profile": "Profile",
+    "UserInformations": "User Informations",
+    "AccountSettings": "Account Settings"
   },
   "Users": {
     "Name": "Name",
@@ -74,6 +77,12 @@
     "AddUser": "Add user",
     "DeleteUser": "Delete user",
     "AskDeleteUser": "Are you sure delete user",
-    "GetReport": "Get report"
-  }
+    "GetReport": "Get report",
+    "Language": "Language",
+    "ItemsPerPage": "Items per page",
+    "ViewType": "View type",
+    "EditSettings": "Edit User Settings"
+  },
+  "VIEW_LIST": "List view",
+  "VIEW_TABLE": "Table view"
 }

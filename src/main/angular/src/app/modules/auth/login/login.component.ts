@@ -3,6 +3,7 @@ import {AuthService} from '../../../_services/auth.service';
 import {TokenStorageService} from '../../../_services/token-storage.service';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
 
 declare var $;
 
@@ -20,14 +21,17 @@ export class LoginComponent implements OnInit, OnDestroy {
   currentYear = new Date().getFullYear();
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
-              private router: Router, private toastr: ToastrService) {}
+              private router: Router, private toastr: ToastrService, private translate: TranslateService) {}
 
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-
+        if (data.userSettings) {
+          const browserLang = data.userSettings.language.toLowerCase();
+          this.translate.use(browserLang.match(/en|pl/) ? browserLang : 'en');
+        }
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;

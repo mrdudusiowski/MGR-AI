@@ -51,6 +51,10 @@ public class User extends BaseEntity {
     @JoinColumn(name = "image_id")
     private ImageModel imageModel;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_settings")
+    private UserSettings userSettings;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -98,6 +102,8 @@ public class User extends BaseEntity {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+    public UserSettings getUserSettings() { return userSettings; }
+    public void setUserSettings(UserSettings userSettings) { this.userSettings = userSettings; }
     public String getName() {
         return name;
     }

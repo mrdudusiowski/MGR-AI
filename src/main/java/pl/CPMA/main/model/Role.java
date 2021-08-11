@@ -16,7 +16,6 @@ public class Role {
     @Column(length = 20)
     private RoleTypes name;
 
-
     public Role() {
 
     }

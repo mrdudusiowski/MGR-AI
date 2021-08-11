@@ -62,4 +62,15 @@ export class UserService {
   getReport(): Observable<any> {
     return this.http.get(API_URL + 'getReport', { responseType: 'blob' });
   }
+
+  updateUserSettings(id, data): Observable<any> {
+    return this.http.put(API_URL + 'updateSettings/', {
+      items_on_page: data.items_on_page,
+      viewType: data.viewType,
+      language: data.language,
+      surname: data.surname,
+      user: data.user,
+      id: data.id
+    }, {params: {id}, headers: new HttpHeaders({ 'Content-Type': 'application/json' })});
+  }
 }

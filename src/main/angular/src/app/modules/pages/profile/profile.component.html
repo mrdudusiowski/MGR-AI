@@ -21,27 +21,68 @@
       <div (click)="fileInput.click()" class="upload-button"><i class="fa fa-upload"></i></div>
     </div>
   </div>
-
-  <div id="fullname">
-    <h3 class="title">{{user?.name}} {{user?.surname}}</h3>
-    <h6>{{user?.username}}</h6>
+  <div class="row">
+    <div id="fullname">
+      <h3 class="title">{{user?.name}} {{user?.surname}}</h3>
+      <h6>{{user?.username}}</h6>
+    </div>
   </div>
   <div class="row">
-    <div class="col-md-6 text-center">
-      <span class="title-header"><i class="fa fa-envelope"></i>: </span><span class="text-value">{{user?.email}}</span>
+    <div class="col-md-6">
+      <div class="card card-primary">
+        <div class="card-header" style="background-color: #fd7e14 !important;">
+          <h3 class="card-title"><i class="fas fa-user"></i> {{'Profile.UserInformations' | translate}}</h3>
+        </div>
+        <div class="card-body">
+          <p class="text-muted text-center"></p>
+          <ul class="list-group list-group-unbordered mb-3">
+            <li class="list-group-item">
+              <span class="title-header"><i style="font-size: 20px;" class="fa fa-envelope"></i> E-mail: </span><span class="text-value">{{user?.email}}</span>
+            </li>
+            <li class="list-group-item">
+              <span class="title-header"><i style="font-size: 20px;" class="fa fa-phone"></i> {{'Users.Phone' | translate}}: </span><span class="text-value">{{user?.phone}}</span>
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a class="btn btn-app">
+                <i (click)="openEditModal(user)" class="fas fa-edit"></i> {{'Global.Edit' | translate}}
+              </a>
+              <a class="btn btn-app">
+                <i (click)="openChangePasswordModal(user)" class="fas fa-key"></i> {{'Global.Password' | translate}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-md-6">
-      <span class="title-header"><i class="fa fa-phone"></i>: </span><span class="text-value">{{user?.phone}}</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <a class="btn btn-app">
-        <i (click)="openEditModal(user)" class="fas fa-edit"></i> {{'Global.Edit' | translate}}
-      </a>
-      <a class="btn btn-app">
-        <i (click)="openChangePasswordModal(user)" class="fas fa-key"></i> {{'Global.Password' | translate}}
-      </a>
+      <div class="card card-primary">
+        <div class="card-header" style="background-color: #fd7e14 !important;">
+          <h3 class="card-title"><i class="fas fa-cogs"></i> {{'Profile.AccountSettings' | translate}}</h3>
+        </div>
+        <div class="card-body">
+          <p class="text-muted text-center"></p>
+          <ul class="list-group list-group-unbordered mb-3">
+            <li class="list-group-item">
+              <span class="title-header"><i style="font-size: 20px;" class="fas fa-language"></i> {{'Users.Language' | translate}}: </span><span class="text-value">{{user?.userSettings.language}}</span>
+            </li>
+            <li class="list-group-item">
+              <span class="title-header"><i style="font-size: 20px;" class="fas fa-sort-amount-up"></i> {{'Users.ItemsPerPage' | translate}}: </span><span class="text-value">{{user?.userSettings.items_on_page}}</span>
+            </li>
+            <li class="list-group-item">
+              <span class="title-header"><i style="font-size: 20px;" class="fas fa-chart-area"></i> {{'Users.ViewType' | translate}}: </span><span class="text-value">{{user?.userSettings.viewType | translate}}</span>
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a class="btn btn-app">
+                <i (click)="openSettingsModal(user)" class="fas fa-cog"></i> {{'Global.Settings' | translate}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -104,6 +145,41 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-outline-success">{{'Global.Save' | translate}}</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">{{'Global.Cancel' | translate}}</button>
+            </div>
+          </form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <div class="modal fade" id="editSettingsModal" tabindex="-1" role="dialog" aria-labelledby="editSettingsModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{'Users.EditSettings' | translate}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form name="editSettingsForm" [formGroup]="editSettingsForm" (ngSubmit)="updateSettings()" novalidate>
+            <div class="form-group">
+              <label for="languageSelect">{{'Users.Language' | translate}}</label>
+              <select class="custom-select rounded-0" id="languageSelect" formControlName="language" name="language">
+                  <option *ngFor="let lang of languages" [value]="lang">{{lang}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="itemsPerPage">{{'Users.ItemsPerPage' | translate}}</label>
+              <input type="number"  min="5" max="100" step="5" id="itemsPerPage" class="form-control" formControlName="itemsPerPage" name="itemsPerPage" placeholder="{{'Users.ItemsPerPage' | translate}}" [ngClass]="submittedEditSettings && f.itemsPerPage.errors ? 'is-invalid' : ''"/>
+              <span *ngIf="f.itemsPerPage.errors?.required" class="error invalid-feedback">{{'Users.itemsPerPageRequired' | translate}}</span>
+            </div>
+            <div class="form-group">
+              <label for="viewTypeSelect">{{'Users.ViewType' | translate}}</label>
+              <select class="custom-select rounded-0" id="viewTypeSelect" formControlName="viewType" name="viewType">
+                <option *ngFor="let viewType of viewTypes" [value]="viewType">{{viewType | translate}}</option>
+              </select>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-outline-success">{{'Global.Save' | translate}}</button>

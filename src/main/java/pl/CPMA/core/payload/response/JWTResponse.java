@@ -1,5 +1,8 @@
 package pl.CPMA.core.payload.response;
 
+import pl.CPMA.main.model.UserSettings;
+
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public class JWTResponse {
@@ -22,7 +25,9 @@ public class JWTResponse {
 
 	private List<String> roles;
 
-	public JWTResponse(String accessToken, Long id, String name, String surname, String username, String email, String phone, List<String> roles) {
+	private UserSettings userSettings;
+
+	public JWTResponse(String accessToken, Long id, String name, String surname, String username, String email, String phone, List<String> roles, UserSettings userSettings) {
 		this.accessToken = accessToken;
 		this.id = id;
 		this.name = name;
@@ -31,6 +36,7 @@ public class JWTResponse {
 		this.email = email;
 		this.phone = phone;
 		this.roles = roles;
+		this.userSettings = userSettings;
 	}
 
 	public String getAccessToken() {
@@ -66,6 +72,7 @@ public class JWTResponse {
 	public List<String> getRoles() {
 		return roles;
 	}
+	public UserSettings getUserSettings() { return userSettings; }
 	public String getName() {
 		return name;
 	}
