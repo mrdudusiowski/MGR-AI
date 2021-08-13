@@ -12,6 +12,10 @@ public class DeviceService {
     @Autowired
     private DeviceRepository deviceRepository;
 
+    public Device getDeviceById(long id) {
+        return deviceRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("Couldn't find a User with id: " + id));
+    }
+
     public Device getDeviceByAndroidId(String androidId) {
         return deviceRepository.findByAndroidID(androidId).orElseThrow(() -> new RuntimeException("Couldn't find a Device with id: "+androidId));
     }

@@ -15,7 +15,11 @@ export class DeviceService {
 
   constructor(private http: HttpClient) { }
 
-  getAllDevices(): Observable<any> {
-    return this.http.get(API_URL + 'getAll');
+  getAllDevices(parameters): Observable<any> {
+    return this.http.get(API_URL + 'getAll', {params: parameters});
+  }
+
+  getAllDevicesList(): Observable<any> {
+    return this.http.get(API_URL + 'getDevicesList');
   }
 }

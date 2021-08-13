@@ -15,8 +15,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getAllUsers(): Observable<any> {
-    return this.http.get(API_URL + 'getAll');
+  getAllUsers(parameters): Observable<any> {
+    return this.http.get(API_URL + 'getAll', {params: parameters});
   }
 
   getUser(id): Observable<any> {
@@ -65,7 +65,7 @@ export class UserService {
 
   updateUserSettings(id, data): Observable<any> {
     return this.http.put(API_URL + 'updateSettings/', {
-      items_on_page: data.items_on_page,
+      items_on_page: data.itemsPerPage,
       viewType: data.viewType,
       language: data.language,
       surname: data.surname,

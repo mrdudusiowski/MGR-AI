@@ -31,3 +31,26 @@
 .modal-footer > #delete-button:hover{
   background-color: red;
 }
+
+.custom-pagination ::ng-deep .ngx-pagination {
+  padding-left: 0px !important;
+  border-radius: 20px !important;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: #ffbd85 !important;
+  border-radius: 20px !important;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination .current,
+.btn-info {
+  background: #fd7e14c2 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination .current:hover {
+  background: #ffbd85 !important;
+  border-radius: 20px !important;
+  border: transparent !important;
+}

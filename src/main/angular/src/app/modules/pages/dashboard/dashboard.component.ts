@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   getDevices() {
-    this.deviceService.getAllDevices().subscribe(
+    this.deviceService.getAllDevicesList().subscribe(
       response => {
         response.forEach(device => {
           const title: string =  'Owner: ' + device.user.name + ' ' + device.user.surname + '<br>'

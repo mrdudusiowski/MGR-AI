@@ -196,8 +196,8 @@ export class ProfileComponent implements OnInit {
     } else {
       this.userService.updateUserSettings(this.user.id, this.editSettingsForm.value).subscribe(
         response => {
-          this.userService.getUser(this.user.id).subscribe(response => {
-            this.tokenStorage.saveUser(response);
+          this.userService.getUser(this.user.id).subscribe(value => {
+            this.tokenStorage.saveUser(value);
           }, err => {
             console.log(err);
           });

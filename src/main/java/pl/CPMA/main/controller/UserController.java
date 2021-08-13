@@ -2,6 +2,9 @@ package pl.CPMA.main.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +31,7 @@ import pl.CPMA.main.utils.PDFGenerator;
 import javax.validation.Valid;
 import java.io.ByteArrayInputStream;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -70,8 +74,15 @@ public class UserController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<?> getAllUsers() {
-        return ResponseEntity.ok(userRepository.findAllByOrderByIdAsc());
+    public Page<User> getAllUsers(@RequestParam(name = "page", defaultValue = "0") int page,
+                                         @RequestParam(name = "size", defaultValue = "10") int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<User> pageResult = userRepository.findAllByOrderByIdAsc(pageRequest);
+        List<User> users = pageResult
+                .stream()
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(users, pageRequest, pageResult.getTotalElements());
     }
 
     @PostMapping("/register")
@@ -185,8 +196,11 @@ public class UserController {
     @GetMapping("/getReport")
     public ResponseEntity<?> generateReport() {
 
-        List<User> users = userRepository.findAll();
-
+        PageRequest pageRequest = PageRequest.of(0, Integer.MAX_VALUE);
+        Page<User> pageResult = userRepository.findAll(pageRequest);
+        List<User> users = pageResult
+                .stream()
+                .collect(Collectors.toList());
         ByteArrayInputStream bis = PDFGenerator.usersReport(users);
 
         HttpHeaders headers = new HttpHeaders();

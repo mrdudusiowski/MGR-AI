@@ -10,17 +10,19 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { DevicesComponent } from './devices/devices.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [PagesComponent, DashboardComponent, UsersComponent, ProfileComponent, DevicesComponent],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    LayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule,
-  ]
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
+        LayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TranslateModule,
+        NgxPaginationModule,
+    ]
 })
 export class PagesModule {
 }

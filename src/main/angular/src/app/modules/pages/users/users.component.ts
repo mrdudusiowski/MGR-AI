@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as bootstrap from 'bootstrap';
 import {MustMatch} from '../../../_helpers/must-match.validator';
 import {ActivatedRoute} from '@angular/router';
+import {TokenStorageService} from '../../../_services/token-storage.service';
+import {HttpParams} from '@angular/common/http';
 
 
 @Component({
@@ -25,12 +27,17 @@ export class UsersComponent implements OnInit, OnDestroy {
   submittedPasswordChange = false;
   interval: any;
   loadedData: boolean = false;
+  page = 1;
+  count = 0;
+  pageSize = 0;
+
 
   constructor(private pagesComponent: PagesComponent,
               private toastr: ToastrService,
               private userService: UserService,
               private formBuilder: FormBuilder,
-              private activatedRoute: ActivatedRoute
+              private activatedRoute: ActivatedRoute,
+              private tokenStorage: TokenStorageService
             ) {}
 
   get f() { return this.addUserForm.controls; }
@@ -38,16 +45,36 @@ export class UsersComponent implements OnInit, OnDestroy {
   get g() { return this.changePasswordForm.controls; }
 
   async ngOnInit() {
-    this.activatedRoute.data.subscribe( value => {
-      if (value.users != null) {
-        this.users = value.users;
-        this.loadedData = true;
-      }
-    });
+    this.pageSize = this.tokenStorage.getUser().userSettings.items_on_page;
+    this.retriveUsers();
     this.runFormBuilders();
     this.interval = setInterval(() => {
       this.refreshUsers();
     }, 50000);
+  }
+
+  getRequestParams(page, pageSize) {
+    let params = new HttpParams();
+    if (page) {
+      params = params.append('page', String(page - 1));
+    }
+    if (pageSize) {
+      params = params.append('size', pageSize);
+    }
+    return params;
+  }
+
+  retriveUsers() {
+    this.activatedRoute.data.subscribe( value => {
+        this.users = value.users.content;
+        this.count = value.users.totalElements;
+        this.loadedData = true;
+    });
+  }
+
+  handlePageChange(event) {
+    this.page = event;
+    this.refreshUsers();
   }
 
   ngOnDestroy() {
@@ -180,9 +207,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 /* Download User Data */
   refreshUsers() {
-    this.userService.getAllUsers().subscribe(
+    const params = this.getRequestParams(this.page, this.pageSize);
+    this.userService.getAllUsers(params).subscribe(
       response => {
-        this.users = response;
+        this.users = response.content;
+        this.count = response.totalElements;
       },
       err => {
         this.toastr.error(err.error.message, 'Error!');
