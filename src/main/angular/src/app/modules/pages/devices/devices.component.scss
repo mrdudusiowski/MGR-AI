@@ -17,10 +17,12 @@
 .btn {
   background-color: white;
   margin: 5px;
-  padding: 12px 16px;
-  font-size: 16px;
 }
 
+ul .active {
+  background-color: #f58c34 !important;
+  border-color: #f58c34;
+}
 
 .custom-pagination ::ng-deep .ngx-pagination {
   padding-left: 0px !important;

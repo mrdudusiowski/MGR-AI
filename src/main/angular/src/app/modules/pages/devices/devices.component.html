@@ -11,13 +11,21 @@
         </ol>
       </div>
     </div>
+    <div class="row mb-1">
+      <div class="col-sm-12 text-right">
+        <ul class="list-group list-group-horizontal-sm float-sm-right">
+          <li class="list-group-item" [ngClass]="{'active': viewType === 'VIEW_LIST'}" (click)="changeViewType('VIEW_LIST')"><i class="fas fa-list"></i></li>
+          <li class="list-group-item" [ngClass]="{'active': viewType === 'VIEW_TABLE'}" (click)="changeViewType('VIEW_TABLE')"><i class="fas fa-table"></i></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 <ng-template #loading>
   <app-component-spinner></app-component-spinner>
 </ng-template>
 <div style="padding: 30px" class="table-responsive" *ngIf="loadedData; else loading">
-  <table class="table table-striped table-hover">
+  <table class="table table-striped table-hover" *ngIf="viewType === 'VIEW_TABLE'">
     <thead>
     <tr>
       <th scope="col">#</th>
@@ -53,7 +61,48 @@
       </tr>
     </tbody>
   </table>
-  <div class="text-center">
+  <div class="col-md-12" *ngIf="viewType == 'VIEW_LIST'">
+    <div class="col-md-3" style="float: left;" *ngFor="let device of devices| paginate : {
+                  itemsPerPage: pageSize,
+                  currentPage: page,
+                  totalItems: count
+                }; let i = index" [attr.id]="device.id">
+      <div class="card card-primary card-outline" style="border-top-color: #fd7e14 !important;">
+        <div class="card-body box-profile">
+          <div class="text-center">
+            <img class="img-fluid" style="border: 3px solid #adb5bd; margin: 0 auto; padding: 3px;" src="assets/img/android-phone.jpg" alt="User profile picture">
+          </div>
+
+          <h3 class="profile-username text-center">{{device.phoneModel}}</h3>
+
+          <p class="text-muted text-center">{{device.manufacturer}}</p>
+
+          <ul class="list-group list-group-unbordered mb-3">
+            <li class="list-group-item">
+              <b>{{'Devices.AndroidID' | translate}}</b> <a class="float-right">{{ device.androidID }}</a>
+            </li>
+            <li class="list-group-item">
+              <b>{{'Devices.SDK' | translate}}</b> <a class="float-right">{{ device.androidVersion }}</a>
+            </li>
+            <li class="list-group-item">
+              <b>{{'Devices.Size' | translate}}</b> <a class="float-right">{{ device.width }}/{{ device.height }}</a>
+            </li>
+            <li class="list-group-item">
+              <b>{{'Devices.Owner' | translate}}</b> <a class="float-right">{{ device?.user.name }} {{ device?.user.surname }}</a>
+            </li>
+            <li class="list-group-item">
+              <b>{{'Devices.Battery' | translate}}</b> <a class="float-right">{{ device?.battery.batteryLevel }}%</a>
+            </li>
+            <li class="list-group-item">
+              <b>{{'Devices.Localisation' | translate}}</b> <a class="float-right"><button class="btn btn-sm" (click)="openMapModal(device)"><i class="fas fa-map-marked-alt"></i> {{'Devices.Map' | translate}}</button></a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.card-body -->
+      </div>
+    </div>
+  </div>
+  <div class="text-center" style="overflow: hidden; width: 100%;">
     <pagination-controls
       class="custom-pagination"
       previousLabel="Prev"

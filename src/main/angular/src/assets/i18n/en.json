@@ -57,7 +57,8 @@
     "Owner": "Owner",
     "Battery": "Battery",
     "Localisation": "Localisation",
-    "Map": "Map"
+    "Map": "Map",
+    "Size": "Size"
   },
   "Profile": {
     "Profile": "Profile",

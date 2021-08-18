@@ -28,6 +28,11 @@
   background-color: #f47d3c;
 }
 
+ul .active {
+  background-color: #f58c34 !important;
+  border-color: #f58c34;
+}
+
 .modal-footer > #delete-button:hover{
   background-color: red;
 }

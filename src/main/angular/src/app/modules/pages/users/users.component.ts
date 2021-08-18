@@ -30,6 +30,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   page = 1;
   count = 0;
   pageSize = 0;
+  viewType = 'VIEW_LIST';
 
 
   constructor(private pagesComponent: PagesComponent,
@@ -45,7 +46,9 @@ export class UsersComponent implements OnInit, OnDestroy {
   get g() { return this.changePasswordForm.controls; }
 
   async ngOnInit() {
-    this.pageSize = this.tokenStorage.getUser().userSettings.items_on_page;
+    const user = this.tokenStorage.getUser();
+    this.pageSize = user.userSettings.items_on_page;
+    this.viewType = user.userSettings.viewType;
     this.retriveUsers();
     this.runFormBuilders();
     this.interval = setInterval(() => {
@@ -249,5 +252,9 @@ export class UsersComponent implements OnInit, OnDestroy {
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });
+  }
+
+  changeViewType(viewType: string) {
+    this.viewType = viewType;
   }
 }

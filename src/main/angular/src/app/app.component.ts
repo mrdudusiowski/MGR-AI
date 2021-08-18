@@ -10,7 +10,6 @@ import {TokenStorageService} from './_services/token-storage.service';
 })
 export class AppComponent {
   title = 'CPMA';
-
   active: boolean;
 
   constructor(private router: Router, private translate: TranslateService, private tokenStorage: TokenStorageService) {

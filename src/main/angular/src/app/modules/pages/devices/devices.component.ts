@@ -13,13 +13,13 @@ import {TokenStorageService} from '../../../_services/token-storage.service';
   styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent implements OnInit, OnDestroy {
-
   private devices: any;
   loadedData = false;
   interval: any;
   page = 1;
   count = 0;
   pageSize = 0;
+  viewType;
 
   constructor(private pagesComponent: PagesComponent,
               private toastr: ToastrService,
@@ -30,7 +30,9 @@ export class DevicesComponent implements OnInit, OnDestroy {
               ) {}
 
   ngOnInit() {
-    this.pageSize = this.tokenStorage.getUser().userSettings.items_on_page;
+    const user = this.tokenStorage.getUser();
+    this.pageSize = user.userSettings.items_on_page;
+    this.viewType = user.userSettings.viewType;
     this.retriveDevices();
     this.interval = setInterval(() => {
       this.refreshDevices();
@@ -87,5 +89,9 @@ export class DevicesComponent implements OnInit, OnDestroy {
     this.localisationService.clearMarkersList();
     this.localisationService.addMarker({lat: device.localisation.latitude, lng: device.localisation.longitude, title});
     $('#mapModal').modal('show');
+  }
+
+  changeViewType(viewType: string) {
+    this.viewType = viewType;
   }
 }
